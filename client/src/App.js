@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Players from './components/Players';
+import SearchForm from './components/SearchForm';
 import './App.css';
 
 class App extends React.Component {
@@ -18,25 +19,25 @@ class App extends React.Component {
       .catch(error => console.log("error", error)); 
   };
 
-  handleChanges = e => {
-    this.setState({
-      entry: e.target.value
-    });
-  };
+  // handleChanges = e => {
+  //   this.setState({
+  //     entry: e.target.value
+  //   });
+  //   window.localStorage.setItem("name", JSON.stringify(this.state.entry));
+  // };
 
   render() {
     return (
       <div className="App">
         <h1>Women's World Cup Players</h1>
         <br></br>
-        <div className="search-form-container">
+        {/* <div className="search-form-container">
           <input
             type="text"
             placeholder="Search for a player"
             value={this.state.entry}
             onChange={this.handleChanges}
           />
-          <button onClick={this.searchPlayer}>Search for Player</button>
         </div>
         <div className="players-container">
           {this.state.wwc.map(player => {
@@ -51,7 +52,8 @@ class App extends React.Component {
               return "";
             }
           })} 
-        </div>
+        </div> */}
+        <SearchForm wwc={this.state} />
         <Players wwc={this.state} />
       </div>
     );
