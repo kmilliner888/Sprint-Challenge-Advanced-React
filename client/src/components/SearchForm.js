@@ -22,19 +22,27 @@ const SearchForm = () => {
     const handleChanges = e => {
         setSearchPlayer(e.target.value);
     };
+
+    const clearForm = e => {
+        e.preventDefault();
+        setSearchPlayer('');
+    };
     
 
     return (
         <div>
             <div className="search-form-container">
+            <label>Search: 
             <input
                 type="text"
                 placeholder="Search for a player"
                 value={searchPlayer}
                 onChange={handleChanges}
             />
+            </label>
+            <button onClick={clearForm}>Clear</button>
             </div>
-            <div className="players-container">
+            <div className="player-container">
             {searchResults.map(player => {
                 if (player.name === searchPlayer) {
                 return <div className="players-card" 

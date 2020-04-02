@@ -19,40 +19,11 @@ class App extends React.Component {
       .catch(error => console.log("error", error)); 
   };
 
-  // handleChanges = e => {
-  //   this.setState({
-  //     entry: e.target.value
-  //   });
-  //   window.localStorage.setItem("name", JSON.stringify(this.state.entry));
-  // };
-
   render() {
     return (
       <div className="App">
-        <h1>Women's World Cup Players</h1>
+        <h1>Womens World Cup Players</h1>
         <br></br>
-        {/* <div className="search-form-container">
-          <input
-            type="text"
-            placeholder="Search for a player"
-            value={this.state.entry}
-            onChange={this.handleChanges}
-          />
-        </div>
-        <div className="players-container">
-          {this.state.wwc.map(player => {
-            if (player.name === this.state.entry) {
-              return <div className="players-card" 
-              key={player.id}>
-              <h1>{player.name}</h1>
-              <h2>{player.country}</h2>
-              <p>Searches: {player.searches}</p>
-              </div>
-            } else {
-              return "";
-            }
-          })} 
-        </div> */}
         <SearchForm wwc={this.state} />
         <Players wwc={this.state} />
       </div>
